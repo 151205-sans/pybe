@@ -115,15 +115,23 @@ function App() {
           {scenarios.map((scenario) => (
             <button
               key={scenario._id}
-              className={selected?._id === scenario._id ? 'scenario active' : 'scenario'}
+              className={[
+                'scenario',
+                selected?._id === scenario._id ? 'active' : '',
+                `difficulty-${scenario.difficulty.toLowerCase()}`
+              ].filter(Boolean).join(' ')}
               onClick={() => {
                 setSelected(scenario);
                 setActiveResult(null);
               }}
             >
-              <span>{scenario.difficulty}</span>
-              <strong>{scenario.title}</strong>
-              <small>{scenario.concepts.join(' / ')}</small>
+              <span className="scenario-difficulty">{scenario.difficulty}</span>
+              <strong className="scenario-title">{scenario.title}</strong>
+              <div className="scenario-concepts">
+                {scenario.concepts.map((concept) => (
+                  <span key={concept} className="scenario-pill">{concept}</span>
+                ))}
+              </div>
             </button>
           ))}
         </div>
