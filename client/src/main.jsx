@@ -139,14 +139,24 @@ function App() {
 
       <section className="workspace">
         <header className="hero">
-          <div>
-            <p>AI-native learning journey</p>
+          <div className="hero-text">
+            <p className="hero-eyebrow"><Sparkles size={13} /><span>AI-native learning journey</span></p>
             <h1>Learn Python by reasoning through real situations first.</h1>
+            <p className="hero-sub">Pick a scenario, explain your thinking, and let PyBe map it to Python concepts.</p>
           </div>
           <div className="hero-stats">
-            <span>{analytics?.scenarioCount || 0}<small>Scenarios</small></span>
-            <span>{analytics?.sessionCount || 0}<small>Sessions</small></span>
-            <span>{analytics?.averagePromptScore || 0}<small>Prompt score</small></span>
+            <div className="hero-stat">
+              <strong>{analytics?.scenarioCount || 0}</strong>
+              <small>Scenarios</small>
+            </div>
+            <div className="hero-stat">
+              <strong>{analytics?.sessionCount || 0}</strong>
+              <small>Sessions</small>
+            </div>
+            <div className="hero-stat">
+              <strong>{analytics?.averagePromptScore || 0}</strong>
+              <small>Avg&nbsp;prompt score</small>
+            </div>
           </div>
         </header>
 
